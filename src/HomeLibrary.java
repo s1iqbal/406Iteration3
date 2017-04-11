@@ -28,7 +28,7 @@ import javax.swing.JTextPane;
 import java.awt.SystemColor;
 import javax.swing.JRadioButton;
 
-public class HomeLibrary {
+public class HomeLibrary extends Database {
 
 	private JFrame frmLibraryManagingSystem;
 	private JPasswordField passwordField;
@@ -42,6 +42,7 @@ public class HomeLibrary {
 	private JTextField textField_Phone1;
 	private JTextField textField_Phone2;
 	private JTextField textField_Phone3;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -78,6 +79,12 @@ public class HomeLibrary {
 		frmLibraryManagingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLibraryManagingSystem.getContentPane().setLayout(null);
 	    
+	    JPanel reportPanel = new JPanel();
+	    reportPanel.setBounds(0, 0, 694, 421);
+	    frmLibraryManagingSystem.getContentPane().add(reportPanel);
+	    reportPanel.setLayout(null);
+	    reportPanel.setVisible(false);
+	    
 	    JPanel registerPanel = new JPanel();
 	    registerPanel.setBounds(0, 0, 694, 421);
 	    frmLibraryManagingSystem.getContentPane().add(registerPanel);
@@ -101,6 +108,92 @@ public class HomeLibrary {
 		frmLibraryManagingSystem.getContentPane().add(LoginPanel);
 		LoginPanel.setLayout(null);
 		LoginPanel.setVisible(false);
+	    
+	    JLabel label_10 = new JLabel("CYPRESS");
+	    label_10.setHorizontalAlignment(SwingConstants.CENTER);
+	    label_10.setFont(new Font("Arial", Font.BOLD, 25));
+	    label_10.setBounds(27, 11, 121, 29);
+	    reportPanel.add(label_10);
+	    
+	    JLabel label_11 = new JLabel("City of Toronto");
+	    label_11.setHorizontalAlignment(SwingConstants.CENTER);
+	    label_11.setFont(new Font("Arial", Font.BOLD, 25));
+	    label_11.setBounds(508, 11, 176, 29);
+	    reportPanel.add(label_11);
+	    
+	    JLabel label_12 = new JLabel("______________________________________________________________________________________________________________");
+	    label_12.setHorizontalAlignment(SwingConstants.CENTER);
+	    label_12.setBounds(24, 39, 660, 14);
+	    reportPanel.add(label_12);
+	    
+	    JButton btnReport = new JButton("Report");
+	    btnReport.setBounds(215, 313, 89, 23);
+	    reportPanel.add(btnReport);
+	    
+	    JButton btnCancel_2 = new JButton("Cancel");
+	    btnCancel_2.setBounds(370, 313, 89, 23);
+	    reportPanel.add(btnCancel_2);
+	    
+	    textField_1 = new JTextField();
+	    textField_1.setBounds(106, 97, 533, 20);
+	    reportPanel.add(textField_1);
+	    textField_1.setColumns(10);
+	    
+	    JLabel lblAddress = new JLabel("Address:");
+	    lblAddress.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblAddress.setBounds(28, 100, 57, 14);
+	    reportPanel.add(lblAddress);
+	    
+	    JButton btnLogout = new JButton("Logout");
+	    btnLogout.setBounds(595, 63, 89, 23);
+	    reportPanel.add(btnLogout);
+	    
+	    JLabel label_13 = new JLabel("______________________________________________________________________________________________________");
+	    label_13.setHorizontalAlignment(SwingConstants.LEFT);
+	    label_13.setBounds(40, 155, 644, 14);
+	    reportPanel.add(label_13);
+	    
+	    JLabel lblProblemsAtThe = new JLabel("PROBLEMS AT THE SITE:");
+	    lblProblemsAtThe.setBounds(40, 144, 135, 14);
+	    reportPanel.add(lblProblemsAtThe);
+	    
+	    JRadioButton rdbtnNewRadioButton = new JRadioButton("Utility Failure");
+	    rdbtnNewRadioButton.setBounds(39, 196, 109, 23);
+	    reportPanel.add(rdbtnNewRadioButton);
+	    
+	    JRadioButton rdbtnPotholes = new JRadioButton("Potholes");
+	    rdbtnPotholes.setBounds(40, 222, 109, 23);
+	    reportPanel.add(rdbtnPotholes);
+	    
+	    JRadioButton rdbtnCity = new JRadioButton("City Property Vandalism");
+	    rdbtnCity.setBounds(39, 248, 162, 23);
+	    reportPanel.add(rdbtnCity);
+	    
+	    JRadioButton rdbtnErodedStreet = new JRadioButton("Eroded Street");
+	    rdbtnErodedStreet.setBounds(40, 274, 109, 23);
+	    reportPanel.add(rdbtnErodedStreet);
+	    
+	    JRadioButton rdbtnTreeCollpase = new JRadioButton("Tree Collapse");
+	    rdbtnTreeCollpase.setBounds(272, 196, 109, 23);
+	    reportPanel.add(rdbtnTreeCollpase);
+	    
+	    JRadioButton rdbtnFloodedStreets = new JRadioButton("Flooded Streets");
+	    rdbtnFloodedStreets.setBounds(272, 222, 109, 23);
+	    reportPanel.add(rdbtnFloodedStreets);
+	    
+	    JRadioButton rdbtnMouldAndSp = new JRadioButton("Mould and Spore Growth");
+	    rdbtnMouldAndSp.setBounds(272, 248, 187, 23);
+	    reportPanel.add(rdbtnMouldAndSp);
+	    
+	    JRadioButton rdbtnGarbageOrAny = new JRadioButton("Garbage or any Other Road Blocking Objects");
+	    rdbtnGarbageOrAny.setBounds(272, 274, 260, 23);
+	    reportPanel.add(rdbtnGarbageOrAny);
+	    
+	    JButton btnFaq_2 = new JButton("FAQ");
+	    btnFaq_2.setBounds(595, 387, 89, 23);
+	    reportPanel.add(btnFaq_2);
+	    
+
 	    
 	    JLabel label_6 = new JLabel("CYPRESS");
 	    label_6.setBounds(24, 11, 121, 29);
@@ -201,6 +294,7 @@ public class HomeLibrary {
 	    textField_Phone3.setColumns(10);
 	    textField_Phone3.setBounds(304, 175, 51, 20);
 	    registerPanel.add(textField_Phone3);
+	   
 	    
 	    JLabel dash = new JLabel("--");
 	    dash.setBounds(197, 178, 23, 14);
@@ -211,6 +305,12 @@ public class HomeLibrary {
 	    registerPanel.add(label_9);
 	    
 	    JButton btnRegister = new JButton("Register");
+	    btnRegister.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	 addProfile(textField_firstName.getText(), textField_lastName.getText(), textField_Address.getText(), 2,textField_Email.getText(), textField_Username.getText(),textField_Password.getText());
+	    		
+	    	}
+	    });
 	    btnRegister.setBounds(121, 315, 89, 23);
 	    registerPanel.add(btnRegister);
 	    
@@ -400,6 +500,8 @@ public class HomeLibrary {
 
 					
 //LOGIN PANEL
+		
+		
 				
 				
 				JLabel label_1 = new JLabel("Username:");
