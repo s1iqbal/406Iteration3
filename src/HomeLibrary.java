@@ -68,7 +68,10 @@ public class HomeLibrary extends Database {
 	}
 
 	/**
-	 * Initialize the contents of the home library frame.
+
+
+
+* Initialize the contents of the home library frame.
 	 */
 	private void initialize() {
 		frmLibraryManagingSystem = new JFrame();
@@ -108,6 +111,55 @@ public class HomeLibrary extends Database {
 		frmLibraryManagingSystem.getContentPane().add(LoginPanel);
 		LoginPanel.setLayout(null);
 		LoginPanel.setVisible(false);
+		
+			JPanel contactPanel = new JPanel();
+		contactPanel.setBounds(0,0,694,421);
+		frmLibraryManagingSystem.getContentPane().add(contactPanel);
+		contactPanel.setLayout(null);
+		contactPanel.setVisible(false);
+		
+		JLabel contactLabel = new JLabel("Contact");
+		contactLabel.setBounds(27, 11, 121, 29);
+		contactLabel.setFont(new Font("Arial", Font.BOLD, 25));
+		contactPanel.add(contactLabel);
+		
+		JTextPane contactPane = new JTextPane();
+		contactPane.setFont(new Font("Tahoma", Font.BOLD, 15));
+		contactPane.setBackground(SystemColor.control);
+		contactPane.setText("Amit Rambaran\n"
+				+ "Illuminati Leader\n"
+				+ "Operations and Logistics\n"
+				+ "416-333-3366\n"
+				+ "amit.r@on.gov.ca");
+		//ADD RESPECTIVE CONTACT INFO HERE
+		contactPane.setBounds(20, 100, 662, 500);
+		contactPanel.add(contactPane);
+		
+		
+		JPanel faqPanel = new JPanel();
+		faqPanel.setBounds(0, 0, 694, 421);
+		frmLibraryManagingSystem.getContentPane().add(faqPanel);
+		faqPanel.setLayout(null);
+		faqPanel.setVisible(false);
+		
+		JLabel faqLabel = new JLabel("FAQ");
+		faqLabel.setFont(new Font("Arial", Font.BOLD, 25));
+		faqLabel.setBounds(27, 11, 121, 29);
+		faqPanel.add(faqLabel);
+		
+		
+		JTextPane faqTextPane = new JTextPane();
+		faqTextPane.setFont(new Font("Tahoma", Font.BOLD, 15));
+		faqTextPane.setBackground(SystemColor.control);
+		faqTextPane.setText("Q: How do I change languages?\n"
+				+ "\nA: fron the _______ screen, select your language of preference and click 'set'.\n"
+				+ "\nQ: How do I report a problem?\n"
+				+ "\nA: From the homescreen, select 'report a problem' and click GO\n"
+				+ "\nI have a suggestion I want to make. Will my voice be heard?\n"
+				+ "\nA: The city values your opinion. You can make a suggestion ticket by clicking 'suggest' on the "
+				+ "home screen and clicking 'go'.");
+		faqTextPane.setBounds(20, 100, 662, 500);
+		faqPanel.add(faqTextPane);
 	    
 	    JLabel label_10 = new JLabel("CYPRESS");
 	    label_10.setHorizontalAlignment(SwingConstants.CENTER);
@@ -466,8 +518,10 @@ public class HomeLibrary extends Database {
 					registerPanel.setVisible(true);		
 					portalPanel.setVisible(false);
 				}
-				
-				
+				else if (rdbtnContact.isSelected()){
+					contactPanel.setVisible(true);
+					portalPanel.setVisible(false);
+				}
 				
 			}
 		});
