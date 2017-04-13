@@ -3,11 +3,11 @@ public class Profile {
  //Local Variables for the Media object	
  Boolean available = true;
  String FName, LName, Address, Email, Username, password;
- int phone;
+ String phone;
  
  
  //Constructor for a Media Object
- public Profile(String FName, String LName, String Address, int phone, String Email, String Username, String password){
+ public Profile(String FName, String LName, String Address, String  phone, String Email, String Username, String password){
 	 		
 	  this.FName = FName;
 	  this.LName = LName;
@@ -35,7 +35,7 @@ public class Profile {
 		   return Address;
 	}
 	
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 	
@@ -50,5 +50,7 @@ public class Profile {
 		return Username;
 	}
 	
-
+	public String toString() {
+		return this.FName + " " + this.LName + " " + this.Address + " " + this.phone + " " + this.Email + " " + this.Username + " " + this.password + " ";
+	}
 }

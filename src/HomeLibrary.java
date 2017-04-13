@@ -1,7 +1,9 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
 import java.awt.Font;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
@@ -9,23 +11,32 @@ import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.Timer;
+
 import java.awt.Button;
 import java.awt.List;
+import java.awt.Window;
+
 import javax.imageio.ImageIO;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
+
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+
 import java.awt.SystemColor;
+
 import javax.swing.JRadioButton;
 
 public class HomeLibrary extends Database {
@@ -43,6 +54,14 @@ public class HomeLibrary extends Database {
 	private JTextField textField_Phone2;
 	private JTextField textField_Phone3;
 	private JTextField textField_1;
+	 final JLabel label_11 = new JLabel("City of Toronto");
+	 final JLabel label_7 = new JLabel("City of Toronto");
+	 final JLabel label_7CI = new JLabel("City of Toronto");
+	 final JLabel label_3 = new JLabel("City of Toronto");
+	 final JLabel lblCity = new JLabel("City of Toronto");
+	 public static final Profile profile = new Profile("","","","          ","","","");
+	 public Profile currentlyLoggedInUser = profile;
+	 
 
 	/**
 	 * Launch the application.
@@ -68,10 +87,7 @@ public class HomeLibrary extends Database {
 	}
 
 	/**
-
-
-
-* Initialize the contents of the home library frame.
+	 * Initialize the contents of the home library frame.
 	 */
 	private void initialize() {
 		frmLibraryManagingSystem = new JFrame();
@@ -82,92 +98,101 @@ public class HomeLibrary extends Database {
 		frmLibraryManagingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLibraryManagingSystem.getContentPane().setLayout(null);
 	    
-	    JPanel reportPanel = new JPanel();
+	    final JPanel reportPanel = new JPanel();
 	    reportPanel.setBounds(0, 0, 694, 421);
 	    frmLibraryManagingSystem.getContentPane().add(reportPanel);
 	    reportPanel.setLayout(null);
 	    reportPanel.setVisible(false);
 	    
-	    JPanel registerPanel = new JPanel();
+	    final JPanel registerPanel = new JPanel();
 	    registerPanel.setBounds(0, 0, 694, 421);
 	    frmLibraryManagingSystem.getContentPane().add(registerPanel);
 	    registerPanel.setLayout(null);
 	    registerPanel.setVisible(false);
 	    
-	    JPanel MainPage = new JPanel();
+	    final JPanel MainPage = new JPanel();
 	    MainPage.setBounds(0, 0, 694, 421);
 	    frmLibraryManagingSystem.getContentPane().add(MainPage);
 	    MainPage.setLayout(null);
 	    MainPage.setVisible(true);
 	    
-	    JPanel portalPanel = new JPanel();
+	    final JPanel portalPanel = new JPanel();
 		portalPanel.setBounds(0, 0, 694, 421);
 		frmLibraryManagingSystem.getContentPane().add(portalPanel);
 		portalPanel.setLayout(null);
 		portalPanel.setVisible(false);
 		
-		JPanel LoginPanel = new JPanel();
+		final JPanel LoginPanel = new JPanel();
 		LoginPanel.setBounds(0, 0, 694, 421);
 		frmLibraryManagingSystem.getContentPane().add(LoginPanel);
 		LoginPanel.setLayout(null);
 		LoginPanel.setVisible(false);
-		
-			JPanel contactPanel = new JPanel();
-		contactPanel.setBounds(0,0,694,421);
-		frmLibraryManagingSystem.getContentPane().add(contactPanel);
-		contactPanel.setLayout(null);
-		contactPanel.setVisible(false);
-		
-		JLabel contactLabel = new JLabel("Contact");
-		contactLabel.setBounds(27, 11, 121, 29);
-		contactLabel.setFont(new Font("Arial", Font.BOLD, 25));
-		contactPanel.add(contactLabel);
-		
-		JTextPane contactPane = new JTextPane();
-		contactPane.setFont(new Font("Tahoma", Font.BOLD, 15));
-		contactPane.setBackground(SystemColor.control);
-		contactPane.setText("Amit Rambaran\n"
-				+ "Illuminati Leader\n"
-				+ "Operations and Logistics\n"
-				+ "416-333-3366\n"
-				+ "amit.r@on.gov.ca");
-		//ADD RESPECTIVE CONTACT INFO HERE
-		contactPane.setBounds(20, 100, 662, 500);
-		contactPanel.add(contactPane);
-		
-		
-		JPanel faqPanel = new JPanel();
-		faqPanel.setBounds(0, 0, 694, 421);
-		frmLibraryManagingSystem.getContentPane().add(faqPanel);
-		faqPanel.setLayout(null);
-		faqPanel.setVisible(false);
-		
-		JLabel faqLabel = new JLabel("FAQ");
-		faqLabel.setFont(new Font("Arial", Font.BOLD, 25));
-		faqLabel.setBounds(27, 11, 121, 29);
-		faqPanel.add(faqLabel);
-		
-		
-		JTextPane faqTextPane = new JTextPane();
-		faqTextPane.setFont(new Font("Tahoma", Font.BOLD, 15));
-		faqTextPane.setBackground(SystemColor.control);
-		faqTextPane.setText("Q: How do I change languages?\n"
-				+ "\nA: fron the _______ screen, select your language of preference and click 'set'.\n"
-				+ "\nQ: How do I report a problem?\n"
-				+ "\nA: From the homescreen, select 'report a problem' and click GO\n"
-				+ "\nI have a suggestion I want to make. Will my voice be heard?\n"
-				+ "\nA: The city values your opinion. You can make a suggestion ticket by clicking 'suggest' on the "
-				+ "home screen and clicking 'go'.");
-		faqTextPane.setBounds(20, 100, 662, 500);
-		faqPanel.add(faqTextPane);
 	    
+		
+		final JPanel changeInfoPanel = new JPanel();
+		changeInfoPanel.setBounds(0, 0, 694, 421);
+		frmLibraryManagingSystem.getContentPane().add(changeInfoPanel);
+		changeInfoPanel.setLayout(null);
+		changeInfoPanel.setVisible(false);
+		
+		final JPanel contactPanel = new JPanel();
+ 		contactPanel.setBounds(0,0,694,421);
+ 		frmLibraryManagingSystem.getContentPane().add(contactPanel);
+ 		contactPanel.setLayout(null);
+ 		contactPanel.setVisible(false);
+ 		
+ 		JLabel contactLabel = new JLabel("Contact");
+ 		contactLabel.setBounds(27, 11, 121, 29);
+ 		contactLabel.setFont(new Font("Arial", Font.BOLD, 25));
+ 		contactPanel.add(contactLabel);
+ 		
+ 		JTextPane contactPane = new JTextPane();
+ 		
+ 		contactPane.setFont(new Font("Tahoma", Font.BOLD, 15));
+ 		contactPane.setBackground(SystemColor.control);
+ 		contactPane.setText("Amit Rambaran\n" +"City Official \n" +"Operations and Logistics\n"+ "416-333-3366\n" +"amit.r@on.gov.ca");
+ 		//ADD RESPECTIVE CONTACT INFO HERE
+ 		contactPane.setEditable(false);
+ 		contactPane.setBounds(20, 100, 662, 500);
+ 		contactPanel.add(contactPane);
+ 		
+ 		
+ 		final JPanel faqPanel = new JPanel();
+ 		faqPanel.setBounds(0, 0, 694, 421);
+ 		frmLibraryManagingSystem.getContentPane().add(faqPanel);
+ 		faqPanel.setLayout(null);
+ 		faqPanel.setVisible(false);
+ 		
+ 		JLabel faqLabel = new JLabel("FAQ");
+ 		faqLabel.setFont(new Font("Arial", Font.BOLD, 25));
+ 		faqLabel.setBounds(27, 11, 121, 29);
+ 		faqPanel.add(faqLabel);
+ 		
+ 		
+ 		JTextPane faqTextPane = new JTextPane();
+ 		faqTextPane.setEditable(false);
+ 		faqTextPane.setFont(new Font("Tahoma", Font.BOLD, 15));
+ 		faqTextPane.setBackground(SystemColor.control);
+ 		faqTextPane.setText("Q: How do I change languages?\n"
+ 				 +"\nA: fron the main screen, select your language of preference and click 'set'.\n"
+ 				+ "\nQ: How do I report a problem?\n"
+ 				 +"\nA: From the homescreen, select 'report a problem' and click GO\n"
+ 				+ "\nI have a suggestion I want to make. Will my voice be heard?\n"
+ 				 +"\nA: The city values your opinion. You can make a suggestion ticket by clicking 'suggest' on the "
+ 				+"home screen and clicking 'go'.");
+ 		faqTextPane.setBounds(20, 100, 662, 500);
+ 		faqPanel.add(faqTextPane);
+		
+		
+		
+		
 	    JLabel label_10 = new JLabel("CYPRESS");
 	    label_10.setHorizontalAlignment(SwingConstants.CENTER);
 	    label_10.setFont(new Font("Arial", Font.BOLD, 25));
 	    label_10.setBounds(27, 11, 121, 29);
 	    reportPanel.add(label_10);
 	    
-	    JLabel label_11 = new JLabel("City of Toronto");
+	   
 	    label_11.setHorizontalAlignment(SwingConstants.CENTER);
 	    label_11.setFont(new Font("Arial", Font.BOLD, 25));
 	    label_11.setBounds(508, 11, 176, 29);
@@ -185,6 +210,15 @@ public class HomeLibrary extends Database {
 	    JButton btnCancel_2 = new JButton("Cancel");
 	    btnCancel_2.setBounds(370, 313, 89, 23);
 	    reportPanel.add(btnCancel_2);
+	    btnCancel_2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				reportPanel.setVisible(false);
+				portalPanel.setVisible(true);
+				
+			}
+	    	
+	    });
 	    
 	    textField_1 = new JTextField();
 	    textField_1.setBounds(106, 97, 533, 20);
@@ -198,7 +232,21 @@ public class HomeLibrary extends Database {
 	    
 	    JButton btnLogout = new JButton("Logout");
 	    btnLogout.setBounds(595, 63, 89, 23);
-	    reportPanel.add(btnLogout);
+	    portalPanel.add(btnLogout);
+	    btnLogout.addActionListener(new ActionListener (){
+
+			public void actionPerformed(ActionEvent arg0) {
+				reportPanel.setVisible(false);
+				portalPanel.setVisible(true);
+				label_11.setText("City of Toronto");
+				label_3.setText("City of Toronto");
+				label_7.setText("City of Toronto");
+				lblCity.setText("City of Toronto");
+				currentlyLoggedInUser=profile;
+				
+			}
+			
+	    } );
 	    
 	    JLabel label_13 = new JLabel("______________________________________________________________________________________________________");
 	    label_13.setHorizontalAlignment(SwingConstants.LEFT);
@@ -206,7 +254,7 @@ public class HomeLibrary extends Database {
 	    reportPanel.add(label_13);
 	    
 	    JLabel lblProblemsAtThe = new JLabel("PROBLEMS AT THE SITE:");
-	    lblProblemsAtThe.setBounds(40, 144, 135, 14);
+	    lblProblemsAtThe.setBounds(40, 144, 235, 14);
 	    reportPanel.add(lblProblemsAtThe);
 	    
 	    JRadioButton rdbtnNewRadioButton = new JRadioButton("Utility Failure");
@@ -230,7 +278,7 @@ public class HomeLibrary extends Database {
 	    reportPanel.add(rdbtnTreeCollpase);
 	    
 	    JRadioButton rdbtnFloodedStreets = new JRadioButton("Flooded Streets");
-	    rdbtnFloodedStreets.setBounds(272, 222, 109, 23);
+	    rdbtnFloodedStreets.setBounds(272, 222, 200, 23);
 	    reportPanel.add(rdbtnFloodedStreets);
 	    
 	    JRadioButton rdbtnMouldAndSp = new JRadioButton("Mould and Spore Growth");
@@ -238,13 +286,11 @@ public class HomeLibrary extends Database {
 	    reportPanel.add(rdbtnMouldAndSp);
 	    
 	    JRadioButton rdbtnGarbageOrAny = new JRadioButton("Garbage or any Other Road Blocking Objects");
-	    rdbtnGarbageOrAny.setBounds(272, 274, 260, 23);
+	    rdbtnGarbageOrAny.setBounds(272, 274, 300, 23);
 	    reportPanel.add(rdbtnGarbageOrAny);
 	    
-	    JButton btnFaq_2 = new JButton("FAQ");
-	    btnFaq_2.setBounds(595, 387, 89, 23);
-	    reportPanel.add(btnFaq_2);
-	    
+	
+	    /** Register form *******************************************************/
 
 	    
 	    JLabel label_6 = new JLabel("CYPRESS");
@@ -253,7 +299,7 @@ public class HomeLibrary extends Database {
 	    label_6.setFont(new Font("Arial", Font.BOLD, 25));
 	    registerPanel.add(label_6);
 	    
-	    JLabel label_7 = new JLabel("City of Toronto");
+	   
 	    label_7.setBounds(501, 11, 176, 29);
 	    label_7.setHorizontalAlignment(SwingConstants.CENTER);
 	    label_7.setFont(new Font("Arial", Font.BOLD, 25));
@@ -359,8 +405,10 @@ public class HomeLibrary extends Database {
 	    JButton btnRegister = new JButton("Register");
 	    btnRegister.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    	 addProfile(textField_firstName.getText(), textField_lastName.getText(), textField_Address.getText(), 2,textField_Email.getText(), textField_Username.getText(),textField_Password.getText());
-	    		
+	    	 addProfile(textField_firstName.getText(), textField_lastName.getText(), textField_Address.getText(), textField_Phone1.getText() + textField_Phone2.getText()+ textField_Phone3.getText() ,textField_Email.getText(), textField_Username.getText(),textField_Password.getText());
+	    	 registerPanel.setVisible(false);
+	    	 portalPanel.setVisible(true);
+	    	 System.out.println(storage.toString());
 	    	}
 	    });
 	    btnRegister.setBounds(121, 315, 89, 23);
@@ -377,10 +425,158 @@ public class HomeLibrary extends Database {
 	    btnCancel_1.setBounds(286, 315, 89, 23);
 	    registerPanel.add(btnCancel_1);
 	    
-	    JButton btnFaq_1 = new JButton("FAQ");
-	    btnFaq_1.setBounds(620, 387, 64, 23);
-	    registerPanel.add(btnFaq_1);
-		
+	/**   CHANGE INFO PANEL  ******************************************************/
+	    
+
+	    JLabel label_6CI = new JLabel("CYPRESS");
+	    label_6CI.setBounds(24, 11, 121, 29);
+	    label_6CI.setHorizontalAlignment(SwingConstants.CENTER);
+	    label_6CI.setFont(new Font("Arial", Font.BOLD, 25));
+	    changeInfoPanel.add(label_6CI);
+	    
+	   
+	    label_7CI.setBounds(501, 11, 176, 29);
+	    label_7CI.setHorizontalAlignment(SwingConstants.CENTER);
+	    label_7CI.setFont(new Font("Arial", Font.BOLD, 25));
+	    changeInfoPanel.add(label_7CI);
+	    
+	    JLabel label_8CI = new JLabel("______________________________________________________________________________________________________________");
+	    label_8CI.setBounds(17, 39, 660, 14);
+	    label_8CI.setHorizontalAlignment(SwingConstants.CENTER);
+	    changeInfoPanel.add(label_8CI);
+	    
+	    JLabel lblNewLabel_1CI = new JLabel("Please enter information below:");
+	    lblNewLabel_1CI.setFont(new Font("Arial", Font.BOLD, 14));
+	    lblNewLabel_1CI.setBounds(24, 64, 238, 28);
+	    changeInfoPanel.add(lblNewLabel_1CI);
+	    
+	    JLabel lblFirstNameCI = new JLabel("First Name:");
+	    lblFirstNameCI.setBounds(59, 100, 71, 14);
+	    changeInfoPanel.add(lblFirstNameCI);
+	    
+	    JLabel lblLastNameCI = new JLabel("Last Name:");
+	    lblLastNameCI.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblLastNameCI.setBounds(44, 125, 71, 14);
+	    changeInfoPanel.add(lblLastNameCI);
+	    
+	    JLabel lblAdressCI = new JLabel("Address:");
+	    lblAdressCI.setBounds(64, 150, 51, 14);
+	    changeInfoPanel.add(lblAdressCI);
+	    
+	    JLabel lblPhoneNumberCI = new JLabel("Phone Number:");
+	    lblPhoneNumberCI.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblPhoneNumberCI.setBounds(10, 175, 106, 14);
+	    changeInfoPanel.add(lblPhoneNumberCI);
+	    
+	    JLabel lblEmailAdressCI = new JLabel("Email Adress:");
+	    lblEmailAdressCI.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblEmailAdressCI.setBounds(24, 200, 91, 14);
+	    changeInfoPanel.add(lblEmailAdressCI);
+	    
+	    JLabel lblUsernameCI = new JLabel("Username:");
+	    lblUsernameCI.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblUsernameCI.setBounds(24, 225, 91, 14);
+	    changeInfoPanel.add(lblUsernameCI);
+	    
+	    JLabel lblPasswordCI = new JLabel("Password:");
+	    lblPasswordCI.setHorizontalAlignment(SwingConstants.TRAILING);
+	    lblPasswordCI.setBounds(24, 256, 91, 14);
+	    changeInfoPanel.add(lblPasswordCI);
+	    
+	    final JTextField textField_firstNameCI = new JTextField();
+	    textField_firstNameCI.setBounds(136, 100, 200, 20);
+	    changeInfoPanel.add(textField_firstNameCI);
+	    textField_firstNameCI.setColumns(10);
+	    textField_firstNameCI.setText(currentlyLoggedInUser.getFName());
+	    
+	    final JTextField textField_lastNameCI = new JTextField();
+	    textField_lastNameCI.setColumns(10);
+	    textField_lastNameCI.setBounds(136, 125, 200, 20);
+	    changeInfoPanel.add(textField_lastNameCI);
+	    textField_lastNameCI.setText(currentlyLoggedInUser.getLName());
+	    
+	    final JTextField textField_AddressCI = new JTextField();
+	    textField_AddressCI.setColumns(10);
+	    textField_AddressCI.setBounds(136, 150, 541, 20);
+	    changeInfoPanel.add(textField_AddressCI);
+	    textField_AddressCI.setText(currentlyLoggedInUser.getAddress());
+	    
+	    
+	    final JTextField textField_EmailCI = new JTextField();
+	    textField_EmailCI.setColumns(10);
+	    textField_EmailCI.setBounds(136, 200, 200, 20);
+	    changeInfoPanel.add(textField_EmailCI);
+	    textField_EmailCI.setText(currentlyLoggedInUser.getEmail());
+	    
+	    
+	    final   JTextField textField_UsernameCI = new JTextField();
+	    textField_UsernameCI.setColumns(10);
+	    textField_UsernameCI.setBounds(136, 225, 200, 20);
+	    changeInfoPanel.add(textField_UsernameCI);
+	    textField_UsernameCI.setEditable(false);
+	    textField_UsernameCI.setText(currentlyLoggedInUser.getUsername());
+	    
+	    
+	    final JTextField textField_PasswordCI = new JTextField();
+	    textField_PasswordCI.setColumns(10);
+	    textField_PasswordCI.setBounds(136, 253, 200, 20);
+	    changeInfoPanel.add(textField_PasswordCI);
+	    textField_PasswordCI.setText(currentlyLoggedInUser.getpassword());
+	    
+	    final  JTextField  textField_Phone1CI = new JTextField();
+	    textField_Phone1CI.setColumns(10);
+	    textField_Phone1CI.setBounds(136, 175, 51, 20);
+	    changeInfoPanel.add(textField_Phone1CI);
+	    textField_Phone1CI.setText(currentlyLoggedInUser.getPhone().substring(0,2));
+	    
+	    final JTextField textField_Phone2CI = new JTextField();
+	    textField_Phone2CI.setColumns(10);
+	    textField_Phone2CI.setBounds(219, 175, 51, 20);
+	    changeInfoPanel.add(textField_Phone2CI);
+	    textField_Phone2CI.setText(currentlyLoggedInUser.getPhone().substring(3,5));
+	    
+	    final JTextField textField_Phone3CI = new JTextField();
+	    textField_Phone3CI.setColumns(10);
+	    textField_Phone3CI.setBounds(304, 175, 51, 20);
+	    changeInfoPanel.add(textField_Phone3CI);
+	    textField_Phone3CI.setText(currentlyLoggedInUser.getPhone().substring(6,8));
+	   
+	    
+	    JLabel dashCI = new JLabel("--");
+	    dashCI.setBounds(197, 178, 23, 14);
+	    changeInfoPanel.add(dashCI);
+	    
+	    JLabel label_9CI = new JLabel("--");
+	    label_9CI.setBounds(280, 178, 14, 14);
+	    changeInfoPanel.add(label_9CI);
+	    
+	    JButton btnRegisterCI = new JButton("Change Info");
+	    btnRegisterCI.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	
+	    	editProfile(textField_firstNameCI.getText(), textField_lastNameCI.getText(), textField_AddressCI.getText(), textField_Phone1CI.getText() + textField_Phone2CI.getText()+ textField_Phone3CI.getText() ,textField_EmailCI.getText(), textField_UsernameCI.getText(),textField_PasswordCI.getText());
+	    	 
+	    	 changeInfoPanel.setVisible(false);
+	    	 portalPanel.setVisible(true);
+	    	 System.out.println(storage.toString());
+	    	}
+	    });
+	    btnRegisterCI.setBounds(121, 315, 120, 23);
+	    changeInfoPanel.add(btnRegisterCI);
+	    
+	    JButton btnCancel_1CI = new JButton("Cancel");
+	    btnCancel_1CI.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		portalPanel.setVisible(true);
+	    		changeInfoPanel.setVisible(false);
+	    		
+	    	}
+	    });
+	    btnCancel_1CI.setBounds(286, 315, 89, 23);
+	    changeInfoPanel.add(btnCancel_1CI);
+	    
+	    
+	    /* END CHANGe INFO PANEL *******************************************************************/
 
 	    
 	    
@@ -392,7 +588,7 @@ public class HomeLibrary extends Database {
 	    																
 	    																JLabel lblNewLabel = new JLabel("");
 	    																lblNewLabel.setBackground(Color.BLACK);
-	    																Image img = new ImageIcon(this.getClass().getResource("/image.png")).getImage();
+	    																Image img = new ImageIcon(this.getClass().getResource("image.png")).getImage();
 	    																lblNewLabel.setIcon(new ImageIcon(img));
 	    																lblNewLabel.setBounds(109, 93, 520, 171);
 	    																MainPage.add(lblNewLabel);
@@ -426,7 +622,7 @@ public class HomeLibrary extends Database {
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Arial", Font.BOLD, 25));
 		
-		JLabel label_3 = new JLabel("City of Toronto");
+		
 		label_3.setBounds(483, 11, 201, 29);
 		portalPanel.add(label_3);
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -443,13 +639,14 @@ public class HomeLibrary extends Database {
 		lblQuick.setBounds(10, 69, 170, 29);
 		portalPanel.add(lblQuick);
 		
-		JRadioButton rdbtnRegister = new JRadioButton("Register");
-		JRadioButton rdbtnReport = new JRadioButton("Report a Problem");
-		JRadioButton rdbtnLogin = new JRadioButton("Login");
-		JRadioButton rdbtnSuggest = new JRadioButton("Suggest");
-		JRadioButton rdbtnVote = new JRadioButton("Vote");
-		JRadioButton rdbtnFaq = new JRadioButton("FAQ");
-		JRadioButton rdbtnContact = new JRadioButton("Contact");
+		final JRadioButton rdbtnRegister = new JRadioButton("Register");
+		final JRadioButton rdbtnReport = new JRadioButton("Report a Problem");
+		final JRadioButton rdbtnLogin = new JRadioButton("Login");
+		final JRadioButton rdbtnChangeInfo = new JRadioButton("Change Info");
+		final JRadioButton rdbtnSuggest = new JRadioButton("Suggest");
+		final JRadioButton rdbtnVote = new JRadioButton("Vote");
+		final JRadioButton rdbtnFaq = new JRadioButton("FAQ");
+		final JRadioButton rdbtnContact = new JRadioButton("Contact");
 		
 		ButtonGroup myButtonGroup = new ButtonGroup();
 		 myButtonGroup.add(rdbtnRegister);
@@ -459,6 +656,7 @@ public class HomeLibrary extends Database {
 		 myButtonGroup.add(rdbtnVote);
 		 myButtonGroup.add(rdbtnFaq);
 		 myButtonGroup.add(rdbtnContact);
+		 myButtonGroup.add(rdbtnChangeInfo);
 		 
 		 
 		rdbtnRegister.setBounds(26, 121, 109, 23);
@@ -469,23 +667,27 @@ public class HomeLibrary extends Database {
 		portalPanel.add(rdbtnLogin);
 		
 		
-		rdbtnReport.setBounds(26, 176, 124, 23);
+		rdbtnChangeInfo.setBounds(26, 175, 118, 23);
+		portalPanel.add(rdbtnChangeInfo);
+		
+		
+		rdbtnReport.setBounds(26, 201, 124, 23);
 		portalPanel.add(rdbtnReport);
 		
 	
-		rdbtnSuggest.setBounds(26, 201, 109, 23);
+		rdbtnSuggest.setBounds(26, 227, 109, 23);
 		portalPanel.add(rdbtnSuggest);
 		
 		
-		rdbtnVote.setBounds(26, 227, 109, 23);
+		rdbtnVote.setBounds(26, 253, 109, 23);
 		portalPanel.add(rdbtnVote);
 		
 		
-		rdbtnFaq.setBounds(26, 253, 109, 23);
+		rdbtnFaq.setBounds(26, 279, 109, 23);
 		portalPanel.add(rdbtnFaq);
 		
 		
-		rdbtnContact.setBounds(26, 279, 109, 23);
+		rdbtnContact.setBounds(26, 305, 109, 23);
 		portalPanel.add(rdbtnContact);
 		
 		JButton btnO = new JButton("GO");
@@ -493,7 +695,8 @@ public class HomeLibrary extends Database {
 			public void actionPerformed(ActionEvent e) {
 				
 				if (rdbtnReport.isSelected()) {
-					
+					reportPanel.setVisible(true);
+					portalPanel.setVisible(false);
 				}
 				else if (rdbtnLogin.isSelected()) {
 					LoginPanel.setVisible(true);
@@ -515,22 +718,26 @@ public class HomeLibrary extends Database {
 					portalPanel.setVisible(false);
 				}
 				else if (rdbtnFaq.isSelected()) {
-					registerPanel.setVisible(true);		
+					faqPanel.setVisible(true);		
 					portalPanel.setVisible(false);
 				}
 				else if (rdbtnContact.isSelected()){
-					contactPanel.setVisible(true);
-					portalPanel.setVisible(false);
+					 				contactPanel.setVisible(true);
+					 					portalPanel.setVisible(false);
+			     }
+				else if (rdbtnChangeInfo.isSelected()){
+					changeInfoPanel.setVisible(true);
+	 					portalPanel.setVisible(false);
 				}
+				
+				
 				
 			}
 		});
 		btnO.setBounds(135, 302, 69, 23);
 		portalPanel.add(btnO);
 		
-		JButton button = new JButton("FAQ");
-		button.setBounds(575, 381, 109, 29);
-		portalPanel.add(button);
+		
 		
 		JLabel lblKeep = new JLabel("Keeping Our City Streets Clean and Safe...");
 		lblKeep.setHorizontalAlignment(SwingConstants.CENTER);
@@ -539,7 +746,7 @@ public class HomeLibrary extends Database {
 		portalPanel.add(lblKeep);
 		
 		JLabel label_5 = new JLabel("");
-		Image img2 = new ImageIcon(this.getClass().getResource("/image2.jpg")).getImage();
+		Image img2 = new ImageIcon(this.getClass().getResource("image2.jpg")).getImage();
 		label_5.setIcon(new ImageIcon(img2));
 		
 		label_5.setBackground(Color.BLACK);
@@ -590,29 +797,46 @@ public class HomeLibrary extends Database {
 											String key = "admin";
 											String key2 = "password";
 											String username = textField.getText();
-											String pass = passwordField.getText(); //hidden for security reasons
-										
-											if (username.contains(key) && pass.contains(key2) ) {
-												//AdminPanel.setVisible(true);
-												LoginPanel.setVisible(false);
-											}
-											else {
-												//shittiest way to print out a error message LOL
-												//errormessage.setText("Please Enter the correct login information");
-												ActionListener taskPerformer = new ActionListener() {
-												       public void actionPerformed(ActionEvent evt) {
-												    //	   errormessage.setText("");
-												       }
-												   };
-												 new Timer(2000, taskPerformer).start();
-												//errormessage.setText("Please Enter the correct login information");
-												
-												
+											String pass = new String(passwordField.getPassword()); //hidden for security reasons
+									
+											for (Profile profiles: storage) {
+												if (profiles.Username.equals(username) && profiles.password.equals(pass)) {
+													currentlyLoggedInUser = profiles;
+													//AdminPanel.setVisible(true);
+													LoginPanel.setVisible(false);
+													portalPanel.setVisible(true);
+													label_11.setText(" Welcome ! " + username+ "," + pass);
+													label_3.setText(" Welcome ! " + username+ "," + pass);
+													label_7.setText(" Welcome ! " + username+ "," + pass);
+													lblCity.setText(" Welcome ! " + username+ "," + pass);
+												    textField_firstNameCI.setText(currentlyLoggedInUser.getFName());
+												    textField_lastNameCI.setText(currentlyLoggedInUser.getLName());
+												    textField_AddressCI.setText(currentlyLoggedInUser.getAddress());
+												    textField_EmailCI.setText(currentlyLoggedInUser.getEmail());
+												    textField_UsernameCI.setText(currentlyLoggedInUser.getUsername());
+												    textField_PasswordCI.setText(currentlyLoggedInUser.getpassword());
+												    textField_Phone1CI.setText(currentlyLoggedInUser.getPhone().substring(0,3));
+												    textField_Phone2CI.setText(currentlyLoggedInUser.getPhone().substring(3,6));
+												    textField_Phone3CI.setText(currentlyLoggedInUser.getPhone().substring(6,10));
+												}
+												else {
+													//shittiest way to print out a error message LOL
+													//errormessage.setText("Please Enter the correct login information");
+													ActionListener taskPerformer = new ActionListener() {
+													       public void actionPerformed(ActionEvent evt) {
+													    //	   errormessage.setText("");
+													       }
+													   };
+													 new Timer(2000, taskPerformer).start();
+													//errormessage.setText("Please Enter the correct login information");
+													
+													
+													}
 												}
 											}
 										});
 										
-										JLabel lblCity = new JLabel("City of Toronto");
+										
 										lblCity.setHorizontalAlignment(SwingConstants.CENTER);
 										lblCity.setFont(new Font("Arial", Font.BOLD, 25));
 										lblCity.setBounds(483, 11, 201, 29);
@@ -626,6 +850,7 @@ public class HomeLibrary extends Database {
 										LoginPanel.add(EnterLogin);
 										
 										JTextPane txtpnYouAreCurrently = new JTextPane();
+										txtpnYouAreCurrently.setEditable(false);
 										txtpnYouAreCurrently.setFont(new Font("Tahoma", Font.BOLD, 15));
 										txtpnYouAreCurrently.setBackground(SystemColor.control);
 										txtpnYouAreCurrently.setText("You are currently at the Cypress Login Page. By logging into this system, you will be able to report a variety of problems as you have witnessed on the streets of Toronto.");
@@ -635,14 +860,20 @@ public class HomeLibrary extends Database {
 										JButton btnCancel = new JButton("Cancel");
 										btnCancel.setBounds(379, 244, 91, 20);
 										LoginPanel.add(btnCancel);
+										btnCancel.addActionListener(new ActionListener(){
+
+											public void actionPerformed(
+													ActionEvent arg0) {
+												LoginPanel.setVisible(false);
+												portalPanel.setVisible(true);
+											}
+										});
 										
 										JLabel lblNewLabel_3 = new JLabel("@cypress.on.ca");
 										lblNewLabel_3.setBounds(379, 157, 102, 14);
 										LoginPanel.add(lblNewLabel_3);
 										
-										JButton btnFaq = new JButton("FAQ");
-										btnFaq.setBounds(575, 381, 109, 29);
-										LoginPanel.add(btnFaq);
+										
 	   
 																		//Image img2 = new ImageIcon(this.getClass().getResource("/image.png")).getImage();
 										
