@@ -12,14 +12,21 @@ public class Database {
 
 //function to initialize a new media object
  public void addProfile(String FName, String LName, String Address, String phone, String Email, String Username, String password) {
- //int incrementer = 11;
   User = new Profile(FName, LName, Address, phone, Email, Username, password);
   storage.add(User);
  }
  
+ public void addReport(Report report, Profile profile){
+	 for(int i=0; i < storage.size() ; i++) {
+	 		if (profile.getUsername().equals(storage.get(i).getUsername())) {
+	 			profile.reports.add(report);
+	 		}
+	 	}
+ }
+ 
  public void editProfile(String FName, String LName, String Address, String phone, String Email, String Username, String password) {
 	 	for(int i=0; i < storage.size() ; i++) {
-	 		if (Username.equals(storage.get(i).getFName())) {
+	 		if (Username.equals(storage.get(i).getUsername())) {
 	 			storage.set(i,new Profile(FName, LName, Address, phone, Email, Username, password) );
 	 		}
 	 	}

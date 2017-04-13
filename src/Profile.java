@@ -1,13 +1,20 @@
+import java.util.ArrayList;
+
 public class Profile {
  
  //Local Variables for the Media object	
  Boolean available = true;
  String FName, LName, Address, Email, Username, password;
  String phone;
+ ArrayList<Report> reports;
+ 
+ public Profile(String FName, String LName, String Address, String  phone, String Email, String Username, String password){
+	this( FName,  LName,  Address,   phone,  Email,  Username, password, new ArrayList<Report>());
+ }
  
  
  //Constructor for a Media Object
- public Profile(String FName, String LName, String Address, String  phone, String Email, String Username, String password){
+ public Profile(String FName, String LName, String Address, String  phone, String Email, String Username, String password, ArrayList<Report> reports){
 	 		
 	  this.FName = FName;
 	  this.LName = LName;
@@ -16,10 +23,12 @@ public class Profile {
 	  this.Email = Email;
 	  this.Username = Username;
 	  this.password = password;
-	  
+	  this.reports = reports;
  }
  
- //The functions below return the corresponding information for the Media object
+
+
+	//The functions below return the corresponding information for the Media object
 	 public String getFName()
 	 {
 		 	return FName;
@@ -51,6 +60,6 @@ public class Profile {
 	}
 	
 	public String toString() {
-		return this.FName + " " + this.LName + " " + this.Address + " " + this.phone + " " + this.Email + " " + this.Username + " " + this.password + " ";
+		return this.FName + " " + this.LName + " " + this.Address + " " + this.phone + " " + this.Email + " " + this.Username + " " + this.password + " " + this.reports.toString();
 	}
 }

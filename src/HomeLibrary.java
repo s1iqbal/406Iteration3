@@ -30,6 +30,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.awt.Color;
 
 import javax.swing.JTextArea;
@@ -54,14 +56,14 @@ public class HomeLibrary extends Database {
 	private JTextField textField_Phone2;
 	private JTextField textField_Phone3;
 	private JTextField textField_1;
-	 final JLabel label_11 = new JLabel("City of Toronto");
-	 final JLabel label_7 = new JLabel("City of Toronto");
-	 final JLabel label_7CI = new JLabel("City of Toronto");
-	 final JLabel label_3 = new JLabel("City of Toronto");
-	 final JLabel lblCity = new JLabel("City of Toronto");
-	 public static final Profile profile = new Profile("","","","          ","","","");
-	 public Profile currentlyLoggedInUser = profile;
-	 
+ final JLabel label_11 = new JLabel("City of Toronto");
+ final JLabel label_7 = new JLabel("City of Toronto");
+ final JLabel label_7CI = new JLabel("City of Toronto");
+ final JLabel label_3 = new JLabel("City of Toronto");
+ final JLabel lblCity = new JLabel("City of Toronto");
+ public static final Profile profile = new Profile("","","","          ","","","");
+ public Profile currentlyLoggedInUser = profile;
+ 
 
 	/**
 	 * Launch the application.
@@ -104,11 +106,18 @@ public class HomeLibrary extends Database {
 	    reportPanel.setLayout(null);
 	    reportPanel.setVisible(false);
 	    
+	    
+	    final EditReportPanel editReportPanel = new EditReportPanel(this);
+	    editReportPanel.setBounds(0, 0, 694, 421);
+	    frmLibraryManagingSystem.getContentPane().add(editReportPanel);
+	    editReportPanel.setVisible(false);
+	    
 	    final JPanel registerPanel = new JPanel();
 	    registerPanel.setBounds(0, 0, 694, 421);
 	    frmLibraryManagingSystem.getContentPane().add(registerPanel);
 	    registerPanel.setLayout(null);
 	    registerPanel.setVisible(false);
+	   
 	    
 	    final JPanel MainPage = new JPanel();
 	    MainPage.setBounds(0, 0, 694, 421);
@@ -206,6 +215,7 @@ public class HomeLibrary extends Database {
 	    JButton btnReport = new JButton("Report");
 	    btnReport.setBounds(215, 313, 89, 23);
 	    reportPanel.add(btnReport);
+	   
 	    
 	    JButton btnCancel_2 = new JButton("Cancel");
 	    btnCancel_2.setBounds(370, 313, 89, 23);
@@ -225,7 +235,7 @@ public class HomeLibrary extends Database {
 	    reportPanel.add(textField_1);
 	    textField_1.setColumns(10);
 	    
-	    JLabel lblAddress = new JLabel("Address:");
+	    final JLabel lblAddress = new JLabel("Address:");
 	    lblAddress.setHorizontalAlignment(SwingConstants.TRAILING);
 	    lblAddress.setBounds(28, 100, 57, 14);
 	    reportPanel.add(lblAddress);
@@ -244,6 +254,7 @@ public class HomeLibrary extends Database {
 				lblCity.setText("City of Toronto");
 				currentlyLoggedInUser=profile;
 				
+				
 			}
 			
 	    } );
@@ -253,7 +264,7 @@ public class HomeLibrary extends Database {
 	    label_13.setBounds(40, 155, 644, 14);
 	    reportPanel.add(label_13);
 	    
-	    JLabel lblProblemsAtThe = new JLabel("PROBLEMS AT THE SITE:");
+	    JLabel lblProblemsAtThe = new JLabel("PROBLEM AT THE SITE:");
 	    lblProblemsAtThe.setBounds(40, 144, 235, 14);
 	    reportPanel.add(lblProblemsAtThe);
 	    
@@ -288,6 +299,36 @@ public class HomeLibrary extends Database {
 	    JRadioButton rdbtnGarbageOrAny = new JRadioButton("Garbage or any Other Road Blocking Objects");
 	    rdbtnGarbageOrAny.setBounds(272, 274, 300, 23);
 	    reportPanel.add(rdbtnGarbageOrAny);
+	    
+	    final ArrayList<JRadioButton> buttons = new ArrayList<JRadioButton>();
+	    buttons.add(rdbtnNewRadioButton);
+	    buttons.add(rdbtnPotholes);
+	    buttons.add(rdbtnCity);
+	    buttons.add(rdbtnErodedStreet);
+	    buttons.add(rdbtnTreeCollpase);
+	    buttons.add(rdbtnFloodedStreets);
+	    buttons.add(rdbtnMouldAndSp);
+	    buttons.add(rdbtnGarbageOrAny);
+	    ButtonGroup problemType = new ButtonGroup();
+	    for(JRadioButton b : buttons) problemType.add(b);
+	    
+	    btnReport.addActionListener(new ActionListener () {
+
+			public void actionPerformed(ActionEvent arg0) {
+				String type = null;
+				for (JRadioButton button : buttons){
+					if (button.isSelected()){
+						type = button.getText();
+					}
+				}
+				if(type != null){
+					
+					addReport(new Report(textField_1.getText()," ", type,currentlyLoggedInUser.Username,0), currentlyLoggedInUser);
+					System.out.println(storage.toString());
+				}
+			}
+	    	
+	    });
 	    
 	
 	    /** Register form *******************************************************/
@@ -641,6 +682,7 @@ public class HomeLibrary extends Database {
 		
 		final JRadioButton rdbtnRegister = new JRadioButton("Register");
 		final JRadioButton rdbtnReport = new JRadioButton("Report a Problem");
+		final JRadioButton rdbtnEditReport = new JRadioButton("Edit Report");
 		final JRadioButton rdbtnLogin = new JRadioButton("Login");
 		final JRadioButton rdbtnChangeInfo = new JRadioButton("Change Info");
 		final JRadioButton rdbtnSuggest = new JRadioButton("Suggest");
@@ -650,7 +692,8 @@ public class HomeLibrary extends Database {
 		
 		ButtonGroup myButtonGroup = new ButtonGroup();
 		 myButtonGroup.add(rdbtnRegister);
-		 myButtonGroup.add( rdbtnReport);
+		 myButtonGroup.add(rdbtnReport);
+		 myButtonGroup.add(rdbtnEditReport);
 		 myButtonGroup.add(rdbtnLogin);
 		 myButtonGroup.add(rdbtnSuggest);
 		 myButtonGroup.add(rdbtnVote);
@@ -674,20 +717,22 @@ public class HomeLibrary extends Database {
 		rdbtnReport.setBounds(26, 201, 124, 23);
 		portalPanel.add(rdbtnReport);
 		
+		rdbtnEditReport.setBounds(26, 227, 124, 23);
+		portalPanel.add(rdbtnEditReport);
 	
-		rdbtnSuggest.setBounds(26, 227, 109, 23);
+		rdbtnSuggest.setBounds(26, 253, 109, 23);
 		portalPanel.add(rdbtnSuggest);
 		
 		
-		rdbtnVote.setBounds(26, 253, 109, 23);
+		rdbtnVote.setBounds(26, 279, 109, 23);
 		portalPanel.add(rdbtnVote);
 		
 		
-		rdbtnFaq.setBounds(26, 279, 109, 23);
+		rdbtnFaq.setBounds(26, 305, 109, 23);
 		portalPanel.add(rdbtnFaq);
 		
 		
-		rdbtnContact.setBounds(26, 305, 109, 23);
+		rdbtnContact.setBounds(26, 325, 109, 23);
 		portalPanel.add(rdbtnContact);
 		
 		JButton btnO = new JButton("GO");
@@ -727,6 +772,11 @@ public class HomeLibrary extends Database {
 			     }
 				else if (rdbtnChangeInfo.isSelected()){
 					changeInfoPanel.setVisible(true);
+	 					portalPanel.setVisible(false);
+				}
+				else if (rdbtnEditReport.isSelected()){
+					   editReportPanel.setVisible(true);
+					   
 	 					portalPanel.setVisible(false);
 				}
 				
